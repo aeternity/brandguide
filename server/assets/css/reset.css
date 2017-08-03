@@ -26,7 +26,7 @@ input,select{vertical-align:middle}
 	touch-action: manipulation;
 	background: none;
 
-	-webkit-tap-highlight-color: rgba(4, 159, 217, .15);
+	-webkit-tap-highlight-color: rgba(240, 60, 10, .15);
 }
 input, textarea {-webkit-appearance: none;-moz-appearance: none;appearance: none;border-radius: 0;-moz-border-radius: 0;-webkit-border-radius: 0}
 
@@ -39,11 +39,11 @@ img {vertical-align: bottom}
 a {color: inherit;text-decoration: underline}
 
 ::selection {
-	background: #049fd9;
+	background: #f03c6e;
 	color: #fff;
 }
 ::-moz-selection {
-	background: #049fd9;
+	background: #f03c6e;
 	color: #fff;
 }
 
