@@ -6,25 +6,6 @@ if(!Number.prototype.Between) {
     }
 }
 
-var c = {
-		isActive: false,
-		log: function(t) {
-			if(!this.isActive) return;
-
-			console.log.apply(this, arguments);
-		},
-		info: function(t) {
-			if(!this.isActive) return;
-
-			console.info.apply(this, arguments);
-		},
-		error: function(t) {
-			if(!this.isActive) return;
-
-			console.error.apply(this, arguments);
-		}
-	};
-
 var App = window.App || {
 		isReady: false,
 		Conf: {
@@ -39,7 +20,6 @@ var App = window.App || {
 		},
 		Init: function() {
 
-			c.log('App.Init');
 
 			this.DocReady.init();
 			this.WindowLoad.init();
@@ -71,7 +51,6 @@ var App = window.App || {
 		WindowLoad: {
 	        init: function() {
 
-				c.log('App.WindowLoad.init');
 	            $(window).load(function() {
 	                App.WindowLoad.isReady = true;
 	                (App.isReady)&&(App.WindowLoad.trigger());
@@ -81,7 +60,6 @@ var App = window.App || {
 			all:[],
 			add: function(identifier, f) {
 
-				c.log(' - App.WindowLoad.add: [' + identifier + ']');
 
 				this.all.push(f);
 			},
@@ -90,7 +68,6 @@ var App = window.App || {
 				if(this.all.length == 0)
 					return;
 
-				c.info('App.WindowLoad.trigger');
 
 				for(var i in this.all) {
 					if(typeof this.all[i] === 'function') {
@@ -102,8 +79,6 @@ var App = window.App || {
 		DocReady: {
 			init: function(){
 
-				c.log('App.DocReady.init');
-
 				$(document).ready(function() {
 					App.DocReady.trigger();
 				});
@@ -111,7 +86,6 @@ var App = window.App || {
 			all:[],
 			add: function(identifier, f) {
 
-				c.log(' - App.DocReady.add: [' + identifier + ']');
 
 				this.all.push(f);
 			},
@@ -119,8 +93,6 @@ var App = window.App || {
 
 				if(this.all.length == 0)
 					return;
-
-				c.info('App.DocReady.trigger');
 
 				for(var i in this.all) {
 					if(typeof this.all[i] === 'function') {
@@ -161,8 +133,6 @@ var App = window.App || {
 		Resize: {
 			init: function() {
 
-				c.log('App.Resize.init');
-
 				$(window)
 				.on(this.e, function(e) {
 					App.Resize.update();
@@ -181,7 +151,6 @@ var App = window.App || {
 					if(size.w.Between(App.Conf.layouts[l]))
 						return l;
 
-				c.error("App.Resize: layout not found for: " + size.w + "x" + size.h);
 			},
 			update: function(immediately) {
 
@@ -217,11 +186,9 @@ var App = window.App || {
 			immediate: {},
 			perlayout: {},
 			add: function(identifier, f, collection) {
-				c.log(' - App.Resize.add: [' + identifier + '][' + collection + '] ');
 				this[collection][identifier] = f;
 			},
 			remove: function(identifier, collection) {
-				c.log(' - App.Resize.remove: [' + identifier + '][' + collection + '] ');
 
 				if(this[collection][identifier])
 					delete this[collection][identifier];
@@ -233,8 +200,6 @@ var App = window.App || {
 			},
 			trigger: function(newSize, oldSize, collection) {
 
-//  				c.info('App.Resize.trigger: ' + collection;
-
 				for(var i in this[collection])
 					if(typeof this[collection][i] === 'function')
 						this[collection][i](newSize, oldSize);
@@ -242,8 +207,6 @@ var App = window.App || {
 		},
         Scroll: {
             init: function() {
-
-                c.log('App.Scroll.init');
 
                 this.current = $(window).scrollTop();
 
@@ -270,11 +233,10 @@ var App = window.App || {
             immediate: {},
             to: function(to, callback, notAnimated) {
 
-                c.info('App.Scroll.to: ' + to + ' animated:' + (!notAnimated ? 'yes' : 'no'));
-
-                var dur = (to != this.current && !notAnimated) ? 650 : 1;
+                var dur = (to != this.current && !notAnimated) ? 1250 : 1;
 
                 $('html, body')
+				.stop(true, false)
                 .animate({
                     'scrollTop': to
                 }, {
@@ -290,19 +252,15 @@ var App = window.App || {
             },
 			add: function(identifier, f, collection) {
 
-				c.log(' - App.Scroll.add: [' + identifier + '][' + collection + '] ');
 				this[collection][identifier] = f;
             },
 			remove: function(identifier, collection) {
-				c.log(' - App.Scroll.remove: [' + identifier + '][' + collection + '] ');
 
 				if(this[collection][identifier])
 					delete this[collection][identifier];
 			},
             current: 0,
             trigger: function(newPosition, oldPosition, collection) {
-
-// 				c.info('App.Scroll.trigger.' + collection + ' from ' + oldPosition + ' to ' + newPosition);
 
 				for(var i in this[collection])
 					if(typeof this[collection][i] === 'function')
@@ -313,11 +271,52 @@ var App = window.App || {
 
 	App.Nav = {
 		init: function() {
-			c.log('App.Nav.init');
 
-			this.sections = App.Conf.body.find('section');
+			var elm = App.Conf.body.find('.index'),
+				triggers = elm.find('a');
 
+			if (elm.length === 0 || triggers.length === 0) {
+				return
+			}
+
+			this.elm = elm;
+			this.triggers = triggers;
 			this.currentIndex = -1;
+
+			triggers
+			.on(App.Conf.clickEvent, function(e) {
+				e.preventDefault();
+
+				var trigger = $(this),
+					target = App.Conf.body.find(trigger.attr('href'));
+
+				if (target.length > 0) {
+					App.Scroll.to(target.offset().top);
+				}
+			});
+
+			var targets = [];
+
+			triggers
+			.each(function() {
+				var trigger = $(this),
+					selector = trigger.attr('href'),
+					target = App.Conf.body.find(selector);
+
+				if (target.length > 0) {
+
+					targets.push(target);
+
+					trigger
+					.on(App.Conf.clickEvent, function(e) {
+						e.preventDefault();
+						App.Scroll.to(target.offset().top);
+					});
+				}
+			});
+
+			this.targets = $(targets).map($.fn.toArray);
+			this.offsets = [];
 
 			App.WindowLoad.add('App.nav', function() {
 
@@ -327,55 +326,15 @@ var App = window.App || {
 				App.Nav.onResize(App.Resize.current, App.Resize.current);
 				App.Nav.onScroll(App.Scroll.current, App.Scroll.current);
 			});
-
-			this.build();
 		},
-		build: function() {
 
-			var nav = $('<aside />'),
-				heading = $('<li><b>Brand Elements</b></li>'),
-				list = $('<ul />');
-
-			heading.appendTo(list);
-
-			this.sections.each(function() {
-
-				var section = $(this),
-					id = section.attr('id'),
-					li = $('<li />'),
-					link = $('<a />'),
-					title = section.find('h1').html();
-
-				link
-				.attr({
-					href: '#' + id,
-					title: title
-				})
-				.html(title)
-				.on(App.Conf.clickEvent, function(e) {
-					e.preventDefault();
-
-					App.Conf.isHistoryEnabled && history.replaceState(null, title, $(this).attr('href'));
-					App.Scroll.to(section.offset().top);
-				})
-				.appendTo(li);
-
-				li.appendTo(list);
-			});
-
-			list.appendTo(nav);
-
-			App.Conf.body.append(nav);
-			this.triggers = nav.find('a');
-		},
 		onResize: function(newSize, oldSize){
-			c.log('App.Nav.onResize');
 
 			var screenOffset = newSize.h / 2;
 
 			var offsets = [];
 
-			this.sections.each(function(){
+			this.targets.each(function(){
 				offsets.push(Math.max(0, ($(this).offset().top - screenOffset)));
 			});
 
@@ -396,12 +355,11 @@ var App = window.App || {
 			});
 
 			if (newIndex != this.currentIndex) {
-				c.log('App.Nav.onScroll:update');
-
 				App.Nav.currentIndex = newIndex;
 				App.Nav.update();
 			}
 		},
+
 		update: function() {
 
 			var activeTrigger = this.triggers.eq(this.currentIndex);
@@ -409,9 +367,9 @@ var App = window.App || {
 			this.triggers.removeClass('active');
 			activeTrigger.addClass('active');
 
-			App.Conf.isHistoryEnabled && history.replaceState(null, activeTrigger.attr('title'), activeTrigger.attr('href'));
+			activeTrigger.closest('.main-list-item').find('.main').addClass('active');
 
-			this.sections.removeClass('active').eq(this.currentIndex).addClass('active');
+			App.Conf.isHistoryEnabled && history.replaceState(null, activeTrigger.attr('title'), activeTrigger.attr('href'));
 		}
 	}
 
