@@ -1,0 +1,577 @@
+@media screen and (min-width: 768px) {
+
+    body {
+        min-height: 815px;
+    }
+    #mobile-nav-trigger {
+        display: none;
+    }
+    .index {
+        height: 100%;
+    }
+    .index header {
+        padding: 36px 20px 32px 70px;
+    }
+    .index .main-list a {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .page header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        z-index: 99;
+    }
+
+    .page h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding-top: 30px;
+        margin-left: 60px;
+    }
+
+    .page header p {
+        font-size: 14px;
+        max-width: 410px;
+        margin-left: 60px;
+    }
+
+    .misuse ul {
+        position: absolute;
+        top: 200px;
+        right: 0;
+        left: 0;
+    }
+
+    .misuse li {
+        width: 24%;
+        min-height: 200px;
+    }
+
+    .misuse figure {
+        padding: 50px 0 0 0;
+        width: 130px;
+        font-size: 12px;
+    }
+
+    .misuse img {
+        width: 130px;
+    }
+
+    .logo figure {
+        top: 140px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .logo figure img {
+        max-width: 300px;
+    }
+
+    .stacked-clearspace figure img {
+        width: 330px;
+    }
+
+    .horizontal-clearspace figure img {
+        width: 400px;
+    }
+
+    #logo-misuse figure span {
+        min-height: 100px;
+    }
+
+    .swatches ul {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    .swatches li {
+        height: 70px;
+        width: 100%;
+    }
+
+    .swatches b {
+        margin-left: 60px;
+        line-height: 69px;
+        float: left;
+    }
+
+    .swatches span {
+        line-height: 69px;
+        margin-right: 60px;
+        float: right;
+    }
+
+    .gradients ul {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .gradients li {
+        height: 150px;
+        width: 100%;
+    }
+
+
+    .gradients .from {
+        top: 20px;
+        left: 60px;
+    }
+
+    .gradients b {
+        top: 45%;
+        left: 50%;
+    }
+
+    .gradients .to {
+        bottom: 20px;
+        right: 60px;
+    }
+
+    .ratios ul {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .ratios li {
+        position: absolute;
+    }
+
+    .ratios-light .plain span {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .ratios-dark .exciting span {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .ratios-light .normal span,
+    .ratios-light .neutral span,
+    .ratios-light .dramatic span,
+    .ratios-light .exciting span {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .ratios-dark .plain span,
+    .ratios-dark .neutral span,
+    .ratios-dark .dramatic span {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .ratios-light .plain {
+        height: 100%;
+        width: 67%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .ratios-dark .exciting {
+        height: 100%;
+        width: 67%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .ratios-light .neutral {
+        height: 33%;
+        width: 33%;
+        top: 0;
+        right: 0;
+    }
+
+    .ratios-light .normal {
+        height: 25%;
+        width: 33%;
+        top: 33%;
+        right: 0;
+    }
+
+    .ratios-light .dramatic {
+        height: 27%;
+        width: 33%;
+        top: 58%;
+        right: 0;
+    }
+
+    .ratios-light .exciting {
+        height: 15%;
+        width: 33%;
+        top: 85%;
+        right: 0;
+    }
+
+    .ratios-dark .plain {
+        height: 40%;
+        width: 33%;
+        top: 0;
+        right: 0;
+    }
+
+    .ratios-dark .neutral {
+        height: 40%;
+        width: 33%;
+        top: 40%;
+        right: 0;
+    }
+
+    .ratios-dark .dramatic {
+        height: 20%;
+        width: 33%;
+        top: 80%;
+        right: 0;
+    }
+
+    .horizontal ul {
+        position: absolute;
+        top: 200px;
+        right: 0;
+        left: 0;
+    }
+
+    .horizontal li {
+        width: 49%;
+        display: inline-block;
+        text-align: center;
+        margin: 50px 0 0 0;
+        vertical-align: top;
+    }
+
+    .horizontal figure + figure {
+        margin: 80px 0 0 0;
+    }
+
+    .horizontal li figcaption {
+        width: 150px;
+        font-size: 12px;
+    }
+
+    .horizontal li img {
+        width: 260px;
+    }
+
+    .stacked ul {
+        position: absolute;
+        top: 200px;
+        right: 0;
+        left: 0;
+    }
+
+    .stacked li {
+        width: 49%;
+        display: inline-block;
+        margin: 50px 0 0 0;
+    }
+
+    .stacked li figure {
+        margin: 80px 0 0 0;
+    }
+
+    .stacked li img {
+        width: 185px;
+    }
+
+    .typography-general .columns {
+        height: 100%;
+        font-size: 0;
+    }
+
+    .typography-general .column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        height: 100%;
+        padding-top: 20%;
+    }
+    .typography-general .column li {
+        padding-left: 60px;
+    }
+
+    .typography-general .roboto-contrast-ratio {
+        font-size: 12px;
+    }
+
+    .typography-general .roboto-light-50 {
+        font-size: 50px;
+        line-height: 65px;
+    }
+
+    .typography-general .roboto-bold-50 {
+        font-size: 50px;
+        line-height: 85px;
+    }
+
+    .typography-general .roboto-bold-30 {
+        font-size: 30px;
+        line-height: 60px;
+    }
+
+    .typography-general .roboto-bold-24 {
+        font-size: 24px;
+        line-height: 60px;
+    }
+
+    .typography-general .roboto-medium-16 {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-medium-14 {
+        font-size: 14px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-regular-18 {
+        font-size: 18px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-regular-16 {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-medium-12 {
+        font-size: 12px;
+        line-height: 30px;
+    }
+
+    .typography-general .roboto-contrast-ratio {
+        font-size: 12px;
+        line-height: 60px;
+    }
+
+    .typography-mobile ul {
+        right: 40px;
+        left: 40px;
+        min-height: 667px;
+        padding: 60px 20px 20px 20px;
+    }
+
+    .typography-mobile .roboto-bold-30 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-30 p {
+        font-size: 30px;
+    }
+
+    .typography-mobile .roboto-bold-30 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .roboto-bold-24 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-24 p {
+        font-size: 24px;
+    }
+
+    .typography-mobile .roboto-bold-24 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .roboto-bold-16 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-16 p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .roboto-bold-16 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .p-normal {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .p-normal p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .p-normal span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .p-neutral p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .p-neutral span {
+        font-size: 14px;
+    }
+
+    .typography-desktop ul {
+        padding: 114px 20px 20px 70px;
+        min-height: 636px;
+        right: 60px;
+        left: 60px;
+    }
+
+    .typography-desktop ul:before {
+        background-size: 93px 15px;
+        background-position: 70px 20px;
+        height: 54px;
+    }
+
+    .typography-desktop .roboto-light-50 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-light-50 p {
+        font-size: 50px;
+    }
+
+    .typography-desktop .roboto-light-50 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-50 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-50 p {
+        font-size: 50px;
+    }
+
+    .typography-desktop .roboto-bold-50 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-24 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-24 p {
+        font-size: 24px;
+    }
+
+    .typography-desktop .roboto-bold-24 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-16 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-16 p {
+        font-size: 16px;
+    }
+
+    .typography-desktop .roboto-bold-16 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .p-normal {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .p-normal p {
+        font-size: 18px;
+    }
+
+    .typography-desktop .p-normal span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .p-neutral p {
+        font-size: 16px;
+    }
+
+    .typography-desktop .p-neutral span {
+        font-size: 14px;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1230px) {
+    body {
+        padding-left: 40px;
+    }
+    .index {
+        transition: width ease-out .3s;
+        width: 40px;
+    }
+    .index header {
+        opacity: 0;
+        transition: opacity ease-out .3s;
+    }
+    .main-list ol {
+        display: block;
+        width: 200px;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 40px;
+        transition: max-height ease-out .3s;
+    }
+    .main-list .main {
+        padding-left: 40px;
+        line-height: 23px;
+    }
+    .main-list .main:before {
+        width: 40px;
+    }
+    #nav-logo .main:before {
+        font-size: 13px;
+    }
+    #nav-colors .main:before {
+        font-size: 20px;
+    }
+    #nav-typography .main:before {
+        font-size: 16px;
+    }
+    .index:hover {
+        width: 280px;
+    }
+    .index:hover header {
+        opacity: 1;
+    }
+    .index:hover .main-list ol {
+        max-height: 350px;
+    }
+}
+
+@media only screen and (min-width: 1231px) {
+
+    body {
+        padding-left: 280px;
+    }
+
+    .index {
+        width: 280px;
+    }
+    .index ol {
+        padding: 0 20px 0 24px;
+    }
+    .main-list .main {
+        padding-left: 24px;
+    }
+    #nav-logo .main:before {
+        font-size: 9px;
+    }
+    #nav-colors .main:before {
+        font-size: 14px;
+    }
+    #nav-typography .main:before {
+        font-size: 12px;
+    }
+}

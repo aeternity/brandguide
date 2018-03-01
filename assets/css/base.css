@@ -33,19 +33,18 @@ html, body {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    min-height: 100%;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: #1e1e1e;
-    padding-left: 280px;
-    min-width: 1024px;
+    font-size: 16px;
+    line-height: 1.2;
+    /* min-width: 1024px; */
 }
 
 .index {
     background-color: #fafafa;
-    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -54,10 +53,81 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-.index header h1 {
-    padding: 10px 20px;
+#mobile-nav-trigger {
+    display: block;
+    width: 25px;
+    height: 19px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: #1e1e1e;
+    border-width: 3px 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#mobile-nav-trigger:before,
+#mobile-nav-trigger:after {
+    display: block;
+    content: '';
+    /* width: 100%; */
+    height: 2px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    transition: transform ease-out .2s, background-color ease-out .2s;
+    background-color: #1e1e1e;
+}
+
+#mobile-nav-trigger:before {
+    top: 6px;
+}
+
+#mobile-nav-trigger:after {
+    bottom: 6px;
+}
+
+.with-mobile-nav #mobile-nav-trigger {
+    border-width: 0;
+}
+
+.with-mobile-nav #mobile-nav-trigger:before {
+    transform: rotate(45deg) translate(2px, 1px);
+}
+
+.with-mobile-nav #mobile-nav-trigger:after {
+    transform: rotate(-45deg) translate(2px, -1px);
+}
+
+.with-mobile-nav #mobile-nav-trigger:before,
+.with-mobile-nav #mobile-nav-trigger:after {
+    background-color: #f7296E;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.index header {
     border-bottom: 1px solid #f0f0f0;
 }
+
+.index header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 117px;
+    height: 19px;
+}
+.index header h1 a {
+    display: block;
+    text-indent: -9999px;
+    background-image: url('/assets/images/aeternity.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
 
 .index img {
     width: 117px;
@@ -71,14 +141,17 @@ body {
     list-style: none;
 }
 
-.index .main-list ol li {
-    margin-top: 9px;
+.index .main-list {
+    display: block;
 }
 
-.index a {
+.index .main-list a {
+    display: block;
     text-decoration: none;
-    font-size: 16px;
-    line-height: 19px;
+}
+
+.index .main-list ol li {
+    margin-top: 9px;
 }
 
 .index a:hover, .index a.active {
@@ -122,106 +195,15 @@ body {
     content: '\e902';
 }
 
-@media only screen and (max-width: 1230px) {
-    body {
-        padding-left: 40px;
-    }
-    .index {
-        transition: width ease-out .3s;
-        width: 40px;
-    }
-    .index header {
-        opacity: 0;
-        transition: opacity ease-out .3s;
-    }
-    .main-list ol {
-        display: block;
-        width: 200px;
-        height: auto;
-        max-height: 0;
-        overflow: hidden;
-        padding: 0 40px;
-        transition: max-height ease-out .3s;
-    }
-    .main-list .main {
-        padding-left: 40px;
-        line-height: 23px;
-    }
-    .main-list .main:before {
-        width: 40px;
-    }
-    #nav-logo .main:before {
-        font-size: 13px;
-    }
-    #nav-colors .main:before {
-        font-size: 20px;
-    }
-    #nav-typography .main:before {
-        font-size: 16px;
-    }
-    .index:hover {
-        width: 280px;
-    }
-    .index:hover header {
-        opacity: 1;
-    }
-    .index:hover .main-list ol {
-        max-height: 350px;
-    }
-}
-
-@media only screen and (min-width: 1231px) {
-    .index {
-        width: 280px;
-    }
-    .index ol {
-        padding: 0 20px 0 24px;
-    }
-    .main-list .main {
-        padding-left: 24px;
-    }
-    #nav-logo .main:before {
-        font-size: 9px;
-    }
-    #nav-colors .main:before {
-        font-size: 14px;
-    }
-    #nav-typography .main:before {
-        font-size: 12px;
-    }
-}
-
 .page {
     position: relative;
-    box-sizing: border-box;
-    height: 100%;
-    min-height: 800px;
     width: 100%;
-    overflow: hidden;
-}
-
-.page header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    z-index: 99;
+    min-height: 100%;
+    box-sizing: border-box;
 }
 
 .page h1 {
-    font-size: 30px;
     font-weight: bold;
-    margin-bottom: 20px;
-    padding-top: 30px;
-    margin-left: 60px;
-}
-
-.page header p {
-    font-size: 14px;
-    max-width: 410px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 60px;
 }
 
 .purple {
@@ -235,32 +217,17 @@ body {
 }
 
 .misuse ul {
-    position: absolute;
-    top: 200px;
-    right: 0;
-    left: 0;
+    display: block;
+    font-size: 0;
 }
 
 .misuse li {
     display: inline-block;
-    width: 24%;
-    min-height: 200px;
     vertical-align: top;
 }
 
 .misuse figure {
-    padding: 50px 0 0 0;
     margin: 0 auto;
-    width: 130px;
-    font-size: 12px;
-}
-
-.misuse figcaption {
-    vertical-align: bottom;
-}
-
-.misuse img {
-    width: 130px;
 }
 
 .misuse .no {
@@ -269,16 +236,16 @@ body {
 
 .download-logo a {
     display: block;
-    width: 260px;
-    height: 50px;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
+    width: 260px;
+    height: 50px;
     font-size: 18px;
     line-height: 50px;
+    margin: auto;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
@@ -286,123 +253,27 @@ body {
     border-radius: 50px;
 }
 
-.logo {
-    position: relative;
+.logo figure {
+    position: absolute;
+    margin: auto;
 }
 
 .logo figure img {
-    width: 300px;
-    margin: auto;
+    display: block;
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.stacked-clearspace figure img {
-    width: 330px;
-}
-
-.horizontal-clearspace figure img {
-    width: 400px;
+    margin: auto;
 }
 
 #logo-misuse figure span {
     display: block;
-    min-height: 100px;
 }
 
-.swatches {
-    position: relative;
-}
-
-.swatches ul {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-}
-
-.swatches li {
-    height: 70px;
-    width: 100%;
-}
-
-.swatches b {
-    margin-left: 60px;
-    float: left;
-    line-height: 69px;
-}
-
-.swatches span {
-    float: right;
-    line-height: 69px;
-    margin-right: 60px;
-}
-
-li.neutral {
-    background-color: #F5F5F5;
-}
-
-li.normal {
-    background-color: #dcdcdc;
-}
-
-li.dramatic {
-    background-color: #F7296E;
-    color: #fff;
-}
-
-.gradients {
-    position: relative;
-}
-
-.gradients ul {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.gradients li {
-    height: 150px;
-    width: 100%;
-    background-color: #eee;
-    position: relative;
-}
-
-.gradients li.neutral-gradient {
-    background: linear-gradient(to right, #fff, #F1F4F7);
-    color: #1e1e1e;
-}
-
-.gradients li.active-gradient {
-    background: linear-gradient(to right, #F22F70, #42255C);
-    color: #fff;
-}
-
-.gradients li.inactive-gradient {
-    background: linear-gradient(to right, #6F53A1, #311B58);
-    color: #fff;
-}
-
-.gradients .from {
-    position: absolute;
-    top: 20px;
-    left: 60px;
-}
-
-.gradients b {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-}
-
-.gradients .to {
-    position: absolute;
-    bottom: 20px;
-    right: 60px;
-}
 
 li.neutral {
     background-color: #F5F5F5;
@@ -437,181 +308,94 @@ li.darkest {
     color: #fff;
 }
 
+
+li.plain {
+    background-color: #ffffff;
+}
+
+
+.gradients li {
+    background-color: #eee;
+    position: relative;
+}
+
+.gradients li.neutral-gradient {
+    background: linear-gradient(to right, #fff, #F1F4F7);
+    color: #1e1e1e;
+}
+
+.gradients li.active-gradient {
+    background: linear-gradient(to right, #F22F70, #42255C);
+    color: #fff;
+}
+
+.gradients li.inactive-gradient {
+    background: linear-gradient(to right, #6F53A1, #311B58);
+    color: #fff;
+}
+
+.gradients .from {
+    position: absolute;
+}
+
+.gradients b {
+    position: absolute;
+}
+
+.gradients .to {
+    position: absolute;
+
+}
+
 .ratios-dark header {
     color: #fff;
 }
 
 .ratios ul {
     display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .ratios li {
+    display: block;
+}
+
+
+.ratios-light .plain span,
+.ratios-light .normal span,
+.ratios-light .neutral span,
+.ratios-light .dramatic span,
+.ratios-light .exciting span,
+.ratios-dark .exciting span,
+.ratios-dark .plain span,
+.ratios-dark .neutral span,
+.ratios-dark .dramatic span {
     position: absolute;
-}
-
-.ratios-light .plain span {
-    bottom: 10px;
-    right: 10px;
-    position: absolute;
-}
-
-.ratios-dark .exciting span {
-    bottom: 10px;
-    right: 10px;
-    position: absolute;
-}
-
-.ratios-light .normal span, .ratios-light .neutral span, .ratios-light .dramatic span, .ratios-light .exciting span {
-    bottom: 10px;
-    left: 10px;
-    position: absolute;
-}
-
-.ratios-dark .plain span, .ratios-dark .neutral span, .ratios-dark .dramatic span {
-    bottom: 10px;
-    left: 10px;
-    position: absolute;
-}
-
-.ratios-light .plain {
-    height: 100%;
-    width: 67%;
-    bottom: 0;
-    left: 0;
-}
-
-.ratios-dark .exciting {
-    height: 100%;
-    width: 67%;
-    bottom: 0;
-    left: 0;
-}
-
-.ratios-light .neutral {
-    height: 33%;
-    width: 33%;
-    top: 0;
-    right: 0;
-}
-
-.ratios-light .normal {
-    height: 25%;
-    width: 33%;
-    top: 33%;
-    right: 0;
-}
-
-.ratios-light .dramatic {
-    height: 27%;
-    width: 33%;
-    top: 58%;
-    right: 0;
-}
-
-.ratios-light .exciting {
-    height: 15%;
-    width: 33%;
-    top: 85%;
-    right: 0;
-}
-
-.ratios-dark .plain {
-    height: 40%;
-    width: 33%;
-    top: 0;
-    right: 0;
-}
-
-.ratios-dark .neutral {
-    height: 40%;
-    width: 33%;
-    top: 40%;
-    right: 0;
-}
-
-.ratios-dark .dramatic {
-    height: 20%;
-    width: 33%;
-    top: 80%;
-    right: 0;
-}
-
-.horizontal ul {
-    position: absolute;
-    top: 200px;
-    right: 0;
-    left: 0;
-}
-
-.horizontal li {
-    width: 49%;
-    display: inline-block;
-    text-align: center;
-    margin: 50px 0 0 0;
-    vertical-align: top;
 }
 
 .horizontal figure {
     text-align: center;
 }
-
-.horizontal figure+figure {
-    margin: 80px 0 0 0;
+.horizontal ul {
+    display: block;
 }
-
 .horizontal li figcaption {
     text-align: center;
-    width: 150px;
     margin: 0 auto;
-    font-size: 12px;
-}
-
-.horizontal li img {
-    width: 260px;
-}
-
-.stacked ul {
-    position: absolute;
-    top: 200px;
-    right: 0;
-    left: 0;
 }
 
 .stacked li {
-    width: 49%;
-    display: inline-block;
     text-align: center;
-    margin: 50px 0 0 0;
 }
-
-.stacked li figure {
-    margin: 80px 0 0 0;
-}
-
 .stacked li img {
-    width: 185px;
+    height: auto;
 }
 
-.typography-general {
-    position: relative;
-}
 
 .typography-general .columns {
     display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 0;
 }
 
 .typography-general .column {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-    height: 100%;
-    padding-top: 20%;
     box-sizing: border-box;
 }
 
@@ -622,67 +406,30 @@ li.darkest {
 
 .typography-general .column li {
     display: block;
-    padding-left: 60px;
-}
-
-.typography-general .roboto-contrast-ratio {
-    font-size: 12px;
 }
 
 .typography-general .roboto-light-50 {
     font-weight: 300;
-    font-size: 50px;
-    line-height: 65px;
 }
 
 .typography-general .roboto-bold-50 {
     font-weight: bold;
-    font-size: 50px;
-    line-height: 85px;
 }
 
 .typography-general .roboto-bold-30 {
     font-weight: bold;
-    font-size: 30px;
-    line-height: 60px;
 }
 
 .typography-general .roboto-bold-24 {
     font-weight: bold;
-    font-size: 24px;
-    line-height: 60px;
 }
 
 .typography-general .roboto-medium-16 {
     font-weight: 500;
-    font-size: 16px;
-    line-height: 50px;
 }
 
 .typography-general .roboto-medium-14 {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 50px;
-}
-
-.typography-general .roboto-regular-18 {
-    font-size: 18px;
-    line-height: 50px;
-}
-
-.typography-general .roboto-regular-16 {
-    font-size: 16px;
-    line-height: 50px;
-}
-
-.typography-general .roboto-medium-12 {
-    font-size: 12px;
-    line-height: 30px;
-}
-
-.typography-general .roboto-contrast-ratio {
-    font-size: 12px;
-    line-height: 60px;
 }
 
 #typography-left .roboto-medium-14 {
@@ -695,14 +442,10 @@ li.darkest {
 
 .typography-mobile ul {
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
     margin: auto;
     box-sizing: border-box;
     max-width: 375px;
-    height: 667px;
-    padding: 60px 20px 20px 20px;
     background: #eee;
     background: linear-gradient(to bottom, #fff, #f1f4f7);
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
@@ -722,86 +465,50 @@ li.darkest {
     background-position: top center;
 }
 
-.typography-mobile .roboto-bold-30 {
-    margin: 10px 0 20px 0;
-}
-
 .typography-mobile .roboto-bold-30 p {
-    font-size: 30px;
     font-weight: bold;
 }
 
 .typography-mobile .roboto-bold-30 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-mobile .roboto-bold-24 {
-    margin: 10px 0 20px 0;
-}
-
 .typography-mobile .roboto-bold-24 p {
-    font-size: 24px;
     font-weight: bold;
 }
 
 .typography-mobile .roboto-bold-24 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
-}
-
-.typography-mobile .roboto-bold-16 {
-    margin: 10px 0 20px 0;
-}
-
-.typography-mobile .roboto-bold-16 p {
-    font-size: 16px;
-    font-weight: 500;
 }
 
 .typography-mobile .roboto-bold-16 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-mobile .p-normal {
-    margin: 10px 0 20px 0;
-}
-
-.typography-mobile .p-normal p {
-    font-size: 16px;
-}
-
 .typography-mobile .p-normal span {
-    font-size: 14px;
     font-weight: bold;
     color: #989898;
 }
 
 .typography-mobile .p-neutral p {
-    font-size: 16px;
     color: #989898;
 }
 
 .typography-mobile .p-neutral span {
-    font-size: 14px;
     font-weight: bold;
     color: #989898;
 }
 
+
 .typography-desktop ul {
+    max-width: 950px;
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
     margin: auto;
     box-sizing: border-box;
-    padding: 114px 20px 20px 70px;
-    max-width: 950px;
-    min-height: 636px;
     background: linear-gradient(to bottom, #fff, #f1f4f7);
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
 }
@@ -815,92 +522,55 @@ li.darkest {
     left: 0;
     background: url(../images/logo-desktop.png) #311B58;
     background-repeat: no-repeat;
-    background-size: 93px 15px;
-    background-position: 70px 20px;
-    height: 54px;
-}
-
-.typography-desktop .roboto-light-50 {
-    margin: 10px 0 20px 0;
 }
 
 .typography-desktop .roboto-light-50 p {
-    font-size: 50px;
     font-weight: 300;
 }
 
 .typography-desktop .roboto-light-50 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-desktop .roboto-bold-50 {
-    margin: 10px 0 20px 0;
-}
-
 .typography-desktop .roboto-bold-50 p {
-    font-size: 50px;
     font-weight: bold;
 }
 
 .typography-desktop .roboto-bold-50 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-desktop .roboto-bold-24 {
-    margin: 10px 0 20px 0;
-}
-
 .typography-desktop .roboto-bold-24 p {
-    font-size: 24px;
     font-weight: bold;
 }
 
 .typography-desktop .roboto-bold-24 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-desktop .roboto-bold-16 {
-    margin: 10px 0 20px 0;
-}
-
 .typography-desktop .roboto-bold-16 p {
-    font-size: 16px;
     font-weight: 500;
 }
 
 .typography-desktop .roboto-bold-16 span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
-.typography-desktop .p-normal {
-    margin: 10px 0 20px 0;
-}
-
-.typography-desktop .p-normal p {
-    font-size: 18px;
-}
 
 .typography-desktop .p-normal span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }
 
 .typography-desktop .p-neutral p {
-    font-size: 16px;
     color: #989898;
 }
 
 .typography-desktop .p-neutral span {
-    font-size: 14px;
     font-weight: 500;
     color: #989898;
 }

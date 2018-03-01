@@ -1,0 +1,486 @@
+@media screen and (max-width: 767px) {
+
+    body {
+        padding-top: 61px;
+        min-height: 568px;
+    }
+
+    body.with-mobile-nav {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .index {
+        right: 0;
+        height: 61px;
+        overflow: hidden;
+        transition: height ease-out .2s;
+    }
+
+    .with-mobile-nav .index {
+        height: 100%;
+    }
+
+    .index .main-list a {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    .index header {
+        padding: 20px;
+    }
+
+    .index .main-list {
+        position: absolute;
+        top: 75px;
+        right: 5px;
+        bottom: 10px;
+        left: 25px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .index .main-list .main-list-item {
+        margin-top: 12px;
+    }
+
+    .main-list .main {
+        padding-left: 40px;
+        line-height: 23px;
+    }
+
+    .main-list ol {
+        overflow: auto;
+        padding: 0 40px;
+    }
+
+    .page {
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 60px;
+        overflow: hidden;
+    }
+    .horizontal,
+    .horizontal-clearspace,
+    .stacked,
+    .stacked-clearspace,
+    .misuse,
+    .download-logo,
+    .typography-mobile {
+        border-bottom: 1px solid #dcdcdc;
+    }
+    /* .page header {
+        text-align: center;
+    } */
+    .page header h1 {
+        font-size: 30px;
+        padding-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    .page header p {
+        font-size: 14px;
+    }
+
+    .misuse li {
+        width: 50%;
+    }
+
+    .misuse figure {
+        padding: 50px 0 0 0;
+        width: 130px;
+        font-size: 12px;
+    }
+
+    .misuse img {
+        width: 130px;
+    }
+
+    .logo figure {
+        top: 140px;
+        left: 40px;
+        right: 40px;
+        bottom: 40px;
+    }
+
+    .logo figure img {
+        max-width: 220px;
+    }
+
+
+    #logo-misuse figure span {
+        min-height: 100px;
+    }
+
+    .page.swatches,
+    .page.gradients,
+    .page.typography-general {
+        padding-bottom: 0;
+    }
+
+    .swatches ul {
+        margin-top: 40px;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .swatches li {
+        display: block;
+        padding: 20px;
+    }
+
+    .swatches b {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .swatches span {
+        font-size: 14px;
+    }
+
+    .gradients ul {
+        margin-top: 40px;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .gradients li {
+        display: block;
+        height: 150px;
+    }
+
+    .gradients .from {
+        top: 20px;
+        left: 20px;
+    }
+
+    .gradients b {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    .gradients .to {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .page.ratios {
+        min-height: auto;
+    }
+
+    .ratios ul {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .ratios-dark {
+        background-color: #311B58;
+        padding-bottom: 0;
+    }
+
+    /* .ratios-light ul {
+        margin-bottom: 60px;
+    } */
+    .ratios li {
+        position: relative;
+    }
+
+    .ratios-light span,
+    .ratios-dark span {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .ratios-light .plain {
+        height: 113px;
+    }
+    .ratios-light .neutral {
+        height: 125px;
+    }
+    .ratios-light .normal {
+        height: 100px;
+    }
+    .ratios-light .dramatic {
+        height: 100px;
+    }
+    .ratios-light .exciting {
+        height: 50px;
+    }
+
+    .ratios-dark .exciting {
+        height: 105px;
+    }
+    .ratios-dark .plain {
+        height: 125px;
+    }
+    .ratios-dark .neutral {
+        height: 125px;
+    }
+    .ratios-dark .dramatic {
+        height: 100px;
+    }
+
+    .horizontal ul {
+        margin-top: 40px;
+    }
+
+    .horizontal li {
+        display: block;
+        text-align: center;
+        margin: 20px 0 0 0;
+    }
+
+    .horizontal figure + figure {
+        margin: 20px 0 0 0;
+    }
+
+    .horizontal li figcaption {
+        font-size: 12px;
+        max-width: 210px;
+    }
+
+    .horizontal li img {
+        width: 260px;
+    }
+
+    .stacked ul {
+        margin-top: 40px;
+    }
+
+    .stacked li {
+        display: block;
+    }
+
+    .stacked li figure {
+        margin-top: 10px;
+    }
+
+    .stacked li img {
+        width: 210px;
+    }
+
+    .typography-general .columns {
+        margin-top: 20px;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+    .typography-general .column {
+        display: block;
+        padding: 20px;
+    }
+
+    .typography-general .roboto-contrast-ratio {
+        font-size: 12px;
+    }
+
+    .typography-general .roboto-light-50 {
+        font-size: 50px;
+        line-height: 55px;
+        /* margin-top: 20px; */
+    }
+
+    .typography-general .roboto-bold-50 {
+        font-size: 50px;
+        line-height: 55px;
+        margin-top: 20px;
+    }
+
+    .typography-general .roboto-bold-30 {
+        font-size: 30px;
+        line-height: 60px;
+    }
+
+    .typography-general .roboto-bold-24 {
+        font-size: 24px;
+        line-height: 60px;
+    }
+
+    .typography-general .roboto-medium-16 {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-medium-14 {
+        font-size: 14px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-regular-18 {
+        font-size: 18px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-regular-16 {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    .typography-general .roboto-medium-12 {
+        font-size: 12px;
+        line-height: 30px;
+    }
+
+    .typography-general .roboto-contrast-ratio {
+        font-size: 12px;
+        line-height: 60px;
+    }
+
+    .typography-mobile {
+        min-height: 655px;
+    }
+    .typography-desktop {
+        min-height: 810px;
+    }
+
+    .typography-mobile ul {
+        right: 20px;
+        left: 20px;
+        min-height: 500px;
+        padding: 40px 20px 20px 20px;
+    }
+
+    .typography-mobile .roboto-bold-30 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-30 p {
+        font-size: 30px;
+    }
+
+    .typography-mobile .roboto-bold-30 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .roboto-bold-24 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-24 p {
+        font-size: 24px;
+    }
+
+    .typography-mobile .roboto-bold-24 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .roboto-bold-16 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .roboto-bold-16 p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .roboto-bold-16 span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .p-normal {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-mobile .p-normal p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .p-normal span {
+        font-size: 14px;
+    }
+
+    .typography-mobile .p-neutral p {
+        font-size: 16px;
+    }
+
+    .typography-mobile .p-neutral span {
+        font-size: 14px;
+    }
+
+    .typography-desktop ul {
+        padding: 74px 20px 20px 20px;
+        left: 20px;
+        right: 20px;
+        min-height: 636px;
+    }
+
+    .typography-desktop ul:before {
+        background-size: 93px 15px;
+        background-position: 20px 20px;
+        height: 54px;
+    }
+
+    .typography-desktop .roboto-light-50 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-light-50 p {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .typography-desktop .roboto-light-50 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-50 {
+        margin: 30px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-50 p {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .typography-desktop .roboto-bold-50 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-24 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-24 p {
+        font-size: 24px;
+    }
+
+    .typography-desktop .roboto-bold-24 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .roboto-bold-16 {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .roboto-bold-16 p {
+        font-size: 16px;
+    }
+
+    .typography-desktop .roboto-bold-16 span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .p-normal {
+        margin: 10px 0 20px 0;
+    }
+
+    .typography-desktop .p-normal p {
+        font-size: 18px;
+    }
+
+    .typography-desktop .p-normal span {
+        font-size: 14px;
+    }
+
+    .typography-desktop .p-neutral p {
+        font-size: 16px;
+    }
+
+    .typography-desktop .p-neutral span {
+        font-size: 14px;
+    }
+}

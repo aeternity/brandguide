@@ -233,6 +233,10 @@ var App = window.App || {
             immediate: {},
             to: function(to, callback, notAnimated) {
 
+				if (App.Resize.current.l === 'm') {
+					to -= 61;
+				}
+
                 var dur = (to != this.current && !notAnimated) ? 1250 : 1;
 
                 $('html, body')
@@ -273,7 +277,7 @@ var App = window.App || {
 		init: function() {
 
 			var elm = App.Conf.body.find('.index'),
-				triggers = elm.find('a');
+				triggers = elm.find('.main-list').find('a');
 
 			if (elm.length === 0 || triggers.length === 0) {
 				return
@@ -282,18 +286,6 @@ var App = window.App || {
 			this.elm = elm;
 			this.triggers = triggers;
 			this.currentIndex = -1;
-
-			triggers
-			.on(App.Conf.clickEvent, function(e) {
-				e.preventDefault();
-
-				var trigger = $(this),
-					target = App.Conf.body.find(trigger.attr('href'));
-
-				if (target.length > 0) {
-					App.Scroll.to(target.offset().top);
-				}
-			});
 
 			var targets = [];
 
@@ -311,6 +303,7 @@ var App = window.App || {
 					.on(App.Conf.clickEvent, function(e) {
 						e.preventDefault();
 						App.Scroll.to(target.offset().top);
+						App.Conf.body.removeClass('with-mobile-nav');
 					});
 				}
 			});
@@ -322,10 +315,27 @@ var App = window.App || {
 
 				App.Scroll.add('App.nav', App.Nav.onScroll.bind(App.Nav), 'immediate');
 				App.Resize.add('App.nav', App.Nav.onResize.bind(App.Nav), 'debounced');
+				App.Resize.add('App.nav', App.Nav.onLayout.bind(App.Nav), 'perlayout');
 
 				App.Nav.onResize(App.Resize.current, App.Resize.current);
 				App.Nav.onScroll(App.Scroll.current, App.Scroll.current);
 			});
+
+            var mobileNavTrigger = $('<a href="#" id="mobile-nav-trigger" />');
+
+			mobileNavTrigger
+			.appendTo(elm)
+			.on(App.Conf.clickEvent, function(e) {
+				e.preventDefault();
+
+				App.Conf.body.toggleClass('with-mobile-nav')
+			});
+		},
+
+		onLayout: function(newSize, oldSize){
+			if (oldSize.l === 'm') {
+				App.Conf.body.removeClass('with-mobile-nav')
+			}
 		},
 
 		onResize: function(newSize, oldSize){
