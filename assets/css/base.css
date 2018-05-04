@@ -234,13 +234,19 @@ body {
     color: #FF0000;
 }
 
-.download-logo a {
-    display: block;
+.download-logo .button-container {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    width: 260px;
+    height: 80px;
+    margin: auto;
+    text-align:center;
+}
+.download-logo a.button-download {
+    display: block;
     width: 260px;
     height: 50px;
     font-size: 18px;
@@ -252,6 +258,21 @@ body {
     background-color: #F7296E;
     border-radius: 50px;
 }
+.download-logo .button-container a.button-download:hover {
+	text-decoration:none;
+}
+
+.download-logo .button-container p {
+	line-height:38px;
+	font-size: 14px;
+}
+.download-logo .button-container a {
+	text-decoration:none;
+}
+.download-logo .button-container a:hover {
+	text-decoration:underline;
+}
+
 
 .logo figure {
     position: absolute;

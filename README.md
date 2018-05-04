@@ -5,7 +5,7 @@
 2. [Colors](https://aeternity.github.io/brandguide/#color-swatches)
 3. [Typography](https://aeternity.github.io/brandguide/#typography-general)
 
-## Logo Use Guideline
+## Logo Files
 
 All logo files are included in the following archive:
 
