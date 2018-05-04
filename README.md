@@ -1,9 +1,9 @@
 # æternity Brand Guide
 
 ## Table of Contents
-1. Logo
-2. Colors
-3. Typography
+1. [Logo](https://aeternity.github.io/brandguide/#logo-backgrounds)
+2. [Colors](https://aeternity.github.io/brandguide/#color-swatches)
+3. [Typography](https://aeternity.github.io/brandguide/#typography-general)
 
 ## Logo Use Guideline
 
